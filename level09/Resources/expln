@@ -1,0 +1,29 @@
+level09@SnowCrash:~$ ltrace ./level09 "aaaaaa"
+__libc_start_main(0x80487ce, 2, 0xbffff7e4, 0x8048aa0, 0x8048b10 <unfinished ...>
+ptrace(0, 0, 1, 0, 0xb7e2fe38)                                            = -1
+puts("You should not reverse this"You should not reverse this
+)                                       = 28
++++ exited (status 1) +++
+level09@SnowCrash:~$ ./level09 "aaaaaa"
+abcdef
+level09@SnowCrash:~$ vi /tmp/prog.c
+level09@SnowCrash:~$ cat /tmp/prog.c
+#include <stdio.h>
+int main(int argc, char **argv)
+{
+        int i=0;
+        while (argv[1][i] != '\0')
+        {
+                printf("%c", argv[1][i]-i);
+                i++;
+        }
+        printf("\n");
+        return (0);
+}
+level09@SnowCrash:~$ /tmp/prog `cat token`
+f3iji1ju5yuevaus41q1afiuq
+level09@SnowCrash:~$ su flag09
+Password:
+Don't forget to launch getflag !
+flag09@SnowCrash:~$ getflag
+Check flag.Here is your token : s5cAJpM8ev6XHw998pRWG728z

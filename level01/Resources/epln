@@ -1,0 +1,17 @@
+level00@SnowCrash:~$ cat /etc/passwd | grep "flag01"
+flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
+
+google: how to decode hash from /etc/passwd
+https://askubuntu.com/questions/383057/how-to-decode-the-hash-password-in-etc-shadow
+
+install john
+echo flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash > passwd
+
+john --users=flag01 passwd
+abcdefg          (flag01)
+
+level00@SnowCrash:~$ su flag01
+Password: abcdefg
+Don't forget to launch getflag !
+
+flag01@SnowCrash:~$ getflag

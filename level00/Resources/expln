@@ -1,0 +1,15 @@
+flag00@SnowCrash:~$ find / -user flag00
+/usr/sbin/john
+
+flag00@SnowCrash:~$ cat /usr/sbin/john
+cdiiddwpgswtgt
+
+googling cipher identifier, choose decode.fr
+
+decode: nottoohardhere
+
+level00@SnowCrash:~$ su flag00
+Password: nottoohardhere
+Don't forget to launch getflag !
+flag00@SnowCrash:~$ getflag
+Check flag.Here is your token : x24ti5gi3x0ol2eh4esiuxias
